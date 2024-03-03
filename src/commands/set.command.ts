@@ -46,8 +46,14 @@ export class SetCommand extends AbstractCommand {
     const collection = this.query.db.collection(name);
 
     if (data.length === 0) {
+      let deletedCount = 0;
+
+      if ((await collection.find().toArray()).length) {
+        deletedCount = (await collection.deleteMany()).deletedCount;
+      }
+
       return console.log(
-        `\nCollection '${collection.collectionName}' is empty`
+        `\nCollection '${collection.collectionName}' is empty, delete: '${deletedCount}'`
       );
     }
 

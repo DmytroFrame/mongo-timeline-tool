@@ -18,7 +18,7 @@ export class ListCommand extends AbstractCommand {
   private printSnapshotNames(snapshotNames: string[]) {
     this.printBreakLine();
     console.log(
-      "|INDEX\t|DATE\t\t|TIME\t\t|NAME\t\t\t|SNAPSHOT NAME\t\t\t\t\t|"
+      "| INDEX\t|  DATE\t\t|  TIME\t\t|  SNAPSHOT NAME\t\t\t\t\t\t\t|"
     );
     this.printBreakLine();
 
@@ -39,14 +39,14 @@ export class ListCommand extends AbstractCommand {
     const database = arr.slice(2).join("_");
 
     console.log(
-      `|${index}\t|${date}\t|${time}\t|${database}\t\t|${name}`
+      `| ${index}\t| ${date}\t| ${time}\t| ${name}`
     );
     this.printBreakLine();
   }
 
   private printBreakLine() {
     console.log(
-      "+-------+---------------+---------------+-----------------------+-----------------------------------------------+"
+      "+-------+---------------+---------------+-----------------------------------------------------------------------+"
     );
   }
 }

@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import { createSnapshotName } from "./utils/create-snapshot-name";
 import { Dirent } from "node:fs";
 import { CollectionType } from "./types/collection.type";
+import { EJSON } from "bson";
 
 export class Storage {
   private storagePath: string;
@@ -31,7 +32,7 @@ export class Storage {
       collections.map((el) =>
         fs.writeFile(
           `${this.storagePath}/${snapshotName}/${el.name}.json`,
-          JSON.stringify(el.data),
+          EJSON.stringify(el.data),
           this.encoding
         )
       )
@@ -53,7 +54,7 @@ export class Storage {
 
     return {
       name: file.name.replace(".json", ""),
-      data: JSON.parse(data),
+      data: EJSON.parse(data),
     };
   }
 
