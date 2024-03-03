@@ -1,0 +1,27 @@
+{
+    "storagePath": "./storage",
+    "databases": [
+        {
+            "shortName": "localDB",
+            "url": "MONGODB_URL",
+            "db": "DATABASE_NAME",
+            "ignoreCollections": {
+                "all": [],
+                "input": [],
+                "output": []
+            }
+        },
+        {
+            "shortName": "devDB",
+            "url": "MONGODB_URL",
+            "db": "DATABASE_NAME",
+            "ignoreCollections": {
+                "all": [],
+                "input": [
+                    "users"
+                ],
+                "output": []
+            }
+        }
+    ]
+}
